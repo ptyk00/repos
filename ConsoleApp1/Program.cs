@@ -1,32 +1,25 @@
-﻿using Dapper;
-using System;
+﻿using System;
+using Dapper;
+using System.Data;
 using System.Data.SqlClient;
 
-namespace ConsoleApp1
+namespace Lab2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var connectionString = "";
+            var connectionString = @"Data Source=PATRYK-KOMPUTER;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             using var connection = new SqlConnection(connectionString);
-
-            //var sql = "SELECT * FROM Region";
-            //var regions = connection.Query<Region>(sql);
-
-            var region = new Region()
-            {
-                ReigionDescription = "dapper",
-                ReigionId = 101
-            };
-
-            //var insertSql = "INSERT INTO Region(regionID, regionDescription) VALUES(@id, @description)";
-            // var result = connection.Execute(insertSql, new { id = 100, desciption = "dapper" });
-
+            connection.Open();
             var db = new DB();
-            db.Insert(connection, region);
-
-
+            //db.SelectOrder(connection,10248);
+            db.SelectRegion(connection);
+            //var region = new Region() { RegionDescription = "Dapper1", RegionID = 666 };
+            //db.Insert(connection,region);
+            //db.Insert(connection, 55, "ASD");
+            //db.Delete(connection, 100);
+            //db.Update(connection, 5, "Bielsko-Biała");
         }
     }
-}
+} 

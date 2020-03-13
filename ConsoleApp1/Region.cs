@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace Lab2
 {
-    public class Region
+    class Region
     {
-        public string ReigionDescription { get; set; }
-        public int ReigionId { get; set; }
+        public int RegionID { get; set; }
+        public string RegionDescription { get; set; }
     }
 }

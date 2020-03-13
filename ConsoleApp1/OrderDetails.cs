@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace Lab2
 {
-    public class OrderDetails
+    class OrderDetails
     {
         public int OrderID { get; set; }
         public double UnitPrice { get; set; }

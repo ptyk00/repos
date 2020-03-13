@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace Lab2
 {
-    public class Order
+    class Order
     {
-        public Order()
+        public int OrderID { get; set; }
+        public string CustomerID { get; set; }
+        public DateTime OrderDate { get; set; }
+        public ICollection<OrderDetails> Details;
+
+        public Order(ICollection<OrderDetails> details)
         {
-            Details = new List<OrderDetails>();
+            Details = details;
         }
 
-        public int OrderID { get; set; }
-        public DateTime OrderDate { get; set; }
-        public string CustomerID { get; set; }
-        public ICollection<OrderDetails> Details { get; set; } 
+
     }
 }
