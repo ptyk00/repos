@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace z7_winforms2
+namespace WindowsFormsApp2
 {
     public partial class Settings : Form
     {
@@ -35,7 +35,7 @@ namespace z7_winforms2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            fontDialog1.ShowDialog();//powino byc zabezpiecznie cos jaksi if
+            fontDialog1.ShowDialog();
             var font = fontDialog1.Font;
             var color = fontDialog1.Color;
             richTextBox1.Font = font;
@@ -49,8 +49,13 @@ namespace z7_winforms2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //progressBar1.Value = 20;
+            
             progressBar1.PerformStep();
         }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+
+        } 
     }
 }
