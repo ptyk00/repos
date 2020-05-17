@@ -1,0 +1,25 @@
+﻿<Window x:Class="Zaj10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zaj10"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="UserList" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="658">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Login}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Password}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Points}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Height="31" Margin="673,10,0,0" VerticalAlignment="Top" Width="109" Click="Button_Click"/>
+        <Button Content="Edytuj" HorizontalAlignment="Left" Margin="673,46,0,0" VerticalAlignment="Top" Width="109" Height="34" Click="Button_Click_1"/>
+        <Button Content="Usun" HorizontalAlignment="Left" Margin="673,85,0,0" VerticalAlignment="Top" Width="109" Height="33" Click="Button_Click_2"/>
+
+    </Grid>
+</Window>
