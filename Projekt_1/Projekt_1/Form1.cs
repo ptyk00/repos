@@ -44,10 +44,18 @@ namespace Projekt_1
 
             using (BDII_projEntities db = new BDII_projEntities())
             {
-                db.Produkty.Add(produkty);
+                if (button1.Text == "Dodaj")
+                {
+                    db.Produkty.Add(produkty);
+                    MessageBox.Show("Dodwanie powiodło się", "dodawanie");
+                }
+                else
+                {
+                    db.Entry(produkty).State = EntityState.Modified;
+                    MessageBox.Show("Aktualizowanie powiodło się", "dodawanie");
+                }
                 db.SaveChanges();
-            }
-            MessageBox.Show("Dodwanie powiodło się", "dodawanie");
+            }            
             Dane();
             textBox1.Text = "";
             textBox2.Text = "";
@@ -60,17 +68,18 @@ namespace Projekt_1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            using (BDII_projEntities db = new BDII_projEntities())
+            if (MessageBox.Show("Czy napewno chcesz usunąć ten wiersz?","Usuwanie", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                var k = db.Entry(produkty);
-                if (k.State == EntityState.Detached)
-                    db.Produkty.Attach(produkty); 
-                db.Produkty.Remove(produkty);
-                db.SaveChanges();
-                Dane();
+                using (BDII_projEntities db = new BDII_projEntities())
+                {
+                    var k = db.Entry(produkty);
+                    if (k.State == EntityState.Detached)
+                        db.Produkty.Attach(produkty);
+                    db.Produkty.Remove(produkty);
+                    db.SaveChanges();
+                    Dane();
+                }
             }
-         
             MessageBox.Show("Usunięto wiersz", "usuwanie");
             textBox1.Text = "";
             textBox2.Text = "";
@@ -96,6 +105,32 @@ namespace Projekt_1
                 textBox5.Text = Convert.ToString(produkty.CenaSprzedaży);
                 textBox6.Text = Convert.ToString(produkty.CenaZakupu);
                 textBox7.Text = Convert.ToString(produkty.StanMagazynu);
+            }
+            button1.Text = "Aktualizuj";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var faktury = new Form2();
+            faktury.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using(BDII_projEntities db = new BDII_projEntities())
+            {
+                var produkty = db.Produkty.FirstOrDefault(x => x.NazwaProduktu == szukajtxt.Text);
+
+                textBox1.Text = Convert.ToString(produkty.IDProduktu);
+                textBox2.Text = produkty.NazwaProduktu;
+                textBox3.Text = Convert.ToString(produkty.IDKategori);
+                textBox4.Text = Convert.ToString(produkty.IlośćJedkostkowa);
+                textBox5.Text = Convert.ToString(produkty.CenaSprzedaży);
+                textBox6.Text = Convert.ToString(produkty.CenaZakupu);
+                textBox7.Text = Convert.ToString(produkty.StanMagazynu);
+
+                button1.Text = "Aktualizuj";
+                szukajtxt.Text = "";
             }
         }
     }
