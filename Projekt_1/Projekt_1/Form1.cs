@@ -42,20 +42,39 @@ namespace Projekt_1
             produkty.CenaZakupu       = Convert.ToDecimal(textBox6.Text.Trim());
             produkty.StanMagazynu     = Convert.ToInt32(textBox7.Text.Trim());
 
+            
+
             using (BDII_projEntities db = new BDII_projEntities())
             {
                 if (button1.Text == "Dodaj")
                 {
-                    db.Produkty.Add(produkty);
-                    MessageBox.Show("Dodwanie powiodło się", "dodawanie");
+                    var pom = Convert.ToInt32(0);
+
+                    if (Convert.ToInt32(textBox7.Text) < pom)
+                    {
+                        MessageBox.Show("Stan Magazynu jest ujemny, proszę wpisac poprawne dane");
+                    }
+                    else if(Convert.ToInt32(textBox4.Text) < pom)
+                    {
+                        MessageBox.Show("Ilość jest ujemna, proszę wpisac poprawne dane");
+                    }
+                    else
+                    {
+                        db.Produkty.Add(produkty);
+                        MessageBox.Show("Dodwanie powiodło się", "dodawanie");
+                        db.SaveChanges();
+                    }
                 }
                 else
                 {
                     db.Entry(produkty).State = EntityState.Modified;
                     MessageBox.Show("Aktualizowanie powiodło się", "dodawanie");
+                    db.SaveChanges();
+
                 }
-                db.SaveChanges();
-            }            
+                
+            }
+            
             Dane();
             textBox1.Text = "";
             textBox2.Text = "";
@@ -64,6 +83,7 @@ namespace Projekt_1
             textBox5.Text = "";
             textBox6.Text = "";
             textBox7.Text = "";
+            button1.Text = "Aktualizuj";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -131,6 +151,19 @@ namespace Projekt_1
 
                 button1.Text = "Aktualizuj";
                 szukajtxt.Text = "";
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textBox3.Text = Convert.ToString(1);
+            }
+
+            if (checkBox2.Checked)
+            {
+                textBox3.Text = Convert.ToString(2);
             }
         }
     }

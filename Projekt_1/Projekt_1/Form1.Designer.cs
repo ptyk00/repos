@@ -55,6 +55,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.szukajtxt = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -261,7 +264,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(292, 18);
+            this.button4.Location = new System.Drawing.Point(662, 21);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(126, 23);
             this.button4.TabIndex = 5;
@@ -271,16 +274,49 @@
             // 
             // szukajtxt
             // 
-            this.szukajtxt.Location = new System.Drawing.Point(424, 20);
+            this.szukajtxt.Location = new System.Drawing.Point(555, 23);
             this.szukajtxt.Name = "szukajtxt";
             this.szukajtxt.Size = new System.Drawing.Size(101, 20);
             this.szukajtxt.TabIndex = 6;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(421, 12);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(58, 17);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "Nabiał";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(421, 35);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(61, 17);
+            this.checkBox2.TabIndex = 8;
+            this.checkBox2.Text = "Ciastka";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(278, 19);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(126, 22);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "WybierzKategorie";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.szukajtxt);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -339,6 +375,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox szukajtxt;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button button5;
     }
 }
 

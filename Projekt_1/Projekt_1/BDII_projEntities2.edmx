@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BDII_projModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="IDKategori" />
+          </Key>
+          <Property Name="IDKategori" Type="int" Nullable="false" />
+          <Property Name="NazwaKategori" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opis" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kontrahenci">
+          <Key>
+            <PropertyRef Name="IDKontrahenta" />
+          </Key>
+          <Property Name="IDKontrahenta" Type="int" Nullable="false" />
+          <Property Name="NazwaKontrahenta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NIP" Type="int" Nullable="false" />
+          <Property Name="RodzajKonrahenta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Stan" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NrFakturySprz" Type="int" Nullable="false" />
+          <Property Name="NrFakturyZak" Type="int" Nullable="false" />
+          <Property Name="Należność" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Zobowiązanie" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="BDII_projModel2StoreContainer">
+          <EntitySet Name="Kategorie" EntityType="Self.Kategorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDII_projModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="IDKategori" />
+          </Key>
+          <Property Name="IDKategori" Type="Int32" Nullable="false" />
+          <Property Name="NazwaKategori" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Kontrahenci">
+          <Key>
+            <PropertyRef Name="IDKontrahenta" />
+          </Key>
+          <Property Name="IDKontrahenta" Type="Int32" Nullable="false" />
+          <Property Name="NazwaKontrahenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NIP" Type="Int32" Nullable="false" />
+          <Property Name="RodzajKonrahenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NrFakturySprz" Type="Int32" Nullable="false" />
+          <Property Name="NrFakturyZak" Type="Int32" Nullable="false" />
+          <Property Name="Należność" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Zobowiązanie" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="BDII_projEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kategorie" EntityType="Self.Kategorie" />
+          <EntitySet Name="Kontrahenci" EntityType="Self.Kontrahenci" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDII_projModel2StoreContainer" CdmEntityContainer="BDII_projEntities2">
+          <EntitySetMapping Name="Kategorie">
+            <EntityTypeMapping TypeName="BDII_projModel2.Kategorie">
+              <MappingFragment StoreEntitySet="Kategorie">
+                <ScalarProperty Name="IDKategori" ColumnName="IDKategori" />
+                <ScalarProperty Name="NazwaKategori" ColumnName="NazwaKategori" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kontrahenci">
+            <EntityTypeMapping TypeName="BDII_projModel2.Kontrahenci">
+              <MappingFragment StoreEntitySet="Kontrahenci">
+                <ScalarProperty Name="IDKontrahenta" ColumnName="IDKontrahenta" />
+                <ScalarProperty Name="NazwaKontrahenta" ColumnName="NazwaKontrahenta" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="RodzajKonrahenta" ColumnName="RodzajKonrahenta" />
+                <ScalarProperty Name="Stan" ColumnName="Stan" />
+                <ScalarProperty Name="NrFakturySprz" ColumnName="NrFakturySprz" />
+                <ScalarProperty Name="NrFakturyZak" ColumnName="NrFakturyZak" />
+                <ScalarProperty Name="Należność" ColumnName="Należność" />
+                <ScalarProperty Name="Zobowiązanie" ColumnName="Zobowiązanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
