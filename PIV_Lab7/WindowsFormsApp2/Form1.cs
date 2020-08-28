@@ -22,15 +22,6 @@ namespace WindowsFormsApp2
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            button2.ForeColor = Color.Azure;
-            var result = colorDialog1.ShowDialog(); 
-            if (result == DialogResult.OK)
-            {
-                button2.BackColor = colorDialog1.Color;
-            }
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -45,6 +36,16 @@ namespace WindowsFormsApp2
             notifyIcon1.ShowBalloonTip(1000, "Tytuł", "Treść", ToolTipIcon.Warning);
 
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            button2.ForeColor = Color.Azure;
+            var result = colorDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                button2.BackColor = colorDialog1.Color;
+            }
         }
     }
 }
